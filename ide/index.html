@@ -1,32 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<title>ACE in Action</title>
-
-<link rel="stylesheet" href="main.css"/>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <title>WebEditor</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css" />
 </head>
-<body>
 
+<body>
     <div class="mainContainer">
         <div class="codeContainer">
-            <div class="btnContainer">
-                <button onclick="setHtml()">HTML</button>
-                <button onclick="setCss()">CSS</button onclick="setHtml()">
-                <button onclick="setJs()">JS</button onclick="setHtml()">
+            <div class="menuContainer">
+                <div class="headerContainer">
+                    <p contenteditable="true">Project Name</p>
+                </div>
+                <div class="tabContainer">
+                    <button class="green" onclick="setHtml()">HTML</button>
+                    <button class="purple" onclick="setCss()">CSS</button class="purple">
+                    <button class="blue" onclick="setJs()">JS</button>
+                </div>
             </div>
-            <div id="editor"></div>
+            <div class="editorContainer">
+                <div id="editor">
+                </div>
+            </div>
         </div>
         <div class="runContainer">
             <iframe id="runI"></iframe>
         </div>
     </div>
 
+    <script src="https://pagecdn.io/lib/ace/1.4.7/ace.js" crossorigin="anonymous"
+        integrity="sha256-C7DTYRJLG+B/VEzHGeoPMw699nsTQYPAXHKXZb+q04E="></script>
+    <script src="https://pagecdn.io/lib/ace/1.4.7/ext-language_tools.js" crossorigin="anonymous"></script>
+    <script src="main.js" />
+    </body>
 
-
-
-<script src="https://pagecdn.io/lib/ace/1.4.7/ace.js" crossorigin="anonymous" integrity="sha256-C7DTYRJLG+B/VEzHGeoPMw699nsTQYPAXHKXZb+q04E=" ></script>
-<script src="https://pagecdn.io/lib/ace/1.4.7/ext-language_tools.js" crossorigin="anonymous"  ></script>
-<script src="main.js"/>
-</body>
 </html>
