@@ -48,13 +48,16 @@ body {
   position: relative;
 }
 
-.mainContainer .codeContainer .menuContainer .headerContainer p {
+.mainContainer .codeContainer .menuContainer .headerContainer #title {
   padding-left: 15px;
   font-size: 1.2rem;
   padding-bottom: 5px;
+  border: none;
+  outline: none;
+  text-align: left;
 }
 
-.mainContainer .codeContainer .menuContainer .headerContainer p:focus {
+.mainContainer .codeContainer .menuContainer .headerContainer #title:focus {
   outline: none;
 }
 

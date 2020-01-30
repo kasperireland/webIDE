@@ -75,6 +75,8 @@ function downloadProject(){
 	let cssC= css.getValue();
 	let jsC= js.getValue();
 
+	let projectName= $("#title").val();
+
 	let zip= new JSZip();
 	zip.file("index.html", htmlC);
 	let cssFolder= zip.folder("css");
@@ -84,7 +86,7 @@ function downloadProject(){
 	zip.generateAsync({
 		type: "blob"
 	}).then(function(content){
-		saveAs(content, "Project.zip");
+		saveAs(content, projectName+".zip");
 	})
 }
 
