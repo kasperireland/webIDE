@@ -10,7 +10,8 @@ editor.setOptions({
 	enableLiveAutocompletion: true
 });
 
-var EditSession = require("ace/edit_session").EditSession;
+// var EditSession = require("ace/edit_session").EditSession;
+var EditSession= ace.EditSession;
 
 var html = new EditSession("<h2>Hello World</h2>");
 html.setMode("ace/mode/html");
