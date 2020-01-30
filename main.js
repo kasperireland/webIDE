@@ -68,3 +68,24 @@ function setCss() {
 function setJs() {
 	editor.setSession(js);
 }
+
+//==============================================
+function downloadProject(){
+	let htmlC= html.getValue();
+	let cssC= css.getValue();
+	let jsC= js.getValue();
+
+	let zip= new JSZip();
+	zip.file("index.html", htmlC);
+	let cssFolder= zip.folder("css");
+	cssFolder.file("main.css", cssC);
+	let jsFolder= zip.folder("js");
+	jsFolder.file("main.js", jsC);
+	zip.generateAsync({
+		type: "blob"
+	}).then(function(content){
+		saveAs(content, "Project.zip");
+	})
+}
+
+//downloadProject();
