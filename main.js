@@ -70,12 +70,20 @@ function setJs() {
 }
 
 //==============================================
+function getValue(msg){
+	return prompt(msg, "");
+}
+//==============================================
 function downloadProject(){
 	let htmlC= html.getValue();
 	let cssC= css.getValue();
 	let jsC= js.getValue();
 
 	let projectName= $("#title").val();
+	if(projectName==="Enter Project Name"){
+		projectName= getValue("Please Enter Project Title:");
+		$("#title").val(projectName);
+	}
 
 	let zip= new JSZip();
 	zip.file("index.html", htmlC);
