@@ -18,8 +18,8 @@ body {
   height: 100vh;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
+  -ms-grid-columns: minmax(650px, 1fr) 1fr;
+      grid-template-columns: minmax(650px, 1fr) 1fr;
 }
 
 .mainContainer .codeContainer {
@@ -96,6 +96,54 @@ body {
   background-color: #6dc9ff;
 }
 
+.mainContainer .codeContainer .menuContainer .tabContainer .black {
+  background-color: black;
+  color: white;
+  margin-right: 20px;
+}
+
+.mainContainer .codeContainer .menuContainer .tabContainer .menuDropdown {
+  position: absolute;
+  left: -150px;
+}
+
+.mainContainer .codeContainer .menuContainer .tabContainer .menuDropdown ul {
+  z-index: 10;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  background-color: #4c4c;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  border: 1px solid black;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
+}
+
+.mainContainer .codeContainer .menuContainer .tabContainer .menuDropdown ul li {
+  list-style: none;
+}
+
+.mainContainer .codeContainer .menuContainer .tabContainer .menuDropdown ul li a {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  background-color: white;
+  color: black;
+  padding: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.mainContainer .codeContainer .menuContainer .tabContainer .menuDropdown ul li a:hover {
+  background-color: blueviolet;
+  color: white;
+  cursor: pointer;
+}
+
 .mainContainer .codeContainer .editorContainer {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
@@ -114,7 +162,6 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: monospace !important;
-  font-size: 16px !important;
   direction: ltr !important;
   text-align: left !important;
   font-family: monospace;

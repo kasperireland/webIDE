@@ -17,7 +17,7 @@ body {
 	width: 100%;
 	height: 100vh;
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: minmax(650px, 1fr) 1fr;
 
 	.codeContainer {
 		display: flex;
@@ -68,6 +68,46 @@ body {
 				.blue {
 					background-color: rgb(109, 201, 255);
 				}
+				.black {
+					background-color: black;
+					color: white;
+					margin-right: 20px;
+				}
+				.menuDropdown {
+					position: absolute;
+					left: -150px;
+					ul {
+						z-index: 10;
+						position: absolute;
+						margin: 0;
+						padding: 0;
+						width: 100%;
+						transform-origin: top;
+						background-color: #4c4c;
+						transition: 0.5s;
+						border: 1px solid black;
+						border-bottom-left-radius: 20px;
+						border-bottom-right-radius: 20px;
+						overflow: hidden;
+						li {
+							list-style: none;
+							a {
+								display: block;
+								text-decoration: none;
+								text-align: center;
+								background-color: white;
+								color: black;
+								padding: 3px;
+								border: 1px solid rgba(0, 0, 0, 0.2);
+								&:hover {
+									background-color: blueviolet;
+									color: white;
+									cursor: pointer;
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 		.editorContainer {
@@ -82,7 +122,6 @@ body {
 				height: 100%;
 				box-sizing: border-box;
 				font-family: monospace !important;
-				font-size: 16px !important;
 				direction: ltr !important;
 				text-align: left !important;
 				font-family: monospace;
