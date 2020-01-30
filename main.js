@@ -38,16 +38,16 @@ function updateHtml() {
 }
 
 function updateCss() {
+	$('#runI').contents().find('style').remove();
 	let doc = runI.contentDocument;
 	doc.body.innerHTML =
 		doc.body.innerHTML + "<style>" + css.getValue() + "</style>";
 }
 
 function updateJs() {
-	console.log("updating js");
-	let doc = runI.contentDocument;
-	doc.body.innerHTML =
-		doc.body.innerHTML + "<script>" + js.getValue() + "</script>";
+	$('#runI').contents().find('script').remove();
+	var scriptTag = "<script>"+js.getValue()+"</script>";
+	$("#runI").contents().find("body").append(scriptTag);
 }
 
 //=======================================================
