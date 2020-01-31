@@ -50,7 +50,7 @@ html.on("change", function(delta) {
 	}
 });
 
-var css = new EditSession(["h2{", "   color: purple; text-align: center; margin: 25px;", "}"]);
+var css = new EditSession(["h2{", "    color: purple;","    text-align: center;","    margin: 25px;", "}"]);
 css.setMode("ace/mode/css");
 css.on("change", function(delta) {
 	if(liveUpdate){
@@ -118,12 +118,21 @@ setHtml();
 
 function setHtml() {
 	editor.setSession(html);
+	$("#htmlSB").addClass("activeTab");
+	$("#cssSB").removeClass("activeTab");
+	$("#jsSB").removeClass("activeTab");
 }
 function setCss() {
 	editor.setSession(css);
+	$("#cssSB").addClass("activeTab");
+	$("#htmlSB").removeClass("activeTab");
+	$("#jsSB").removeClass("activeTab");
 }
 function setJs() {
 	editor.setSession(js);
+	$("#jsSB").addClass("activeTab");
+	$("#cssSB").removeClass("activeTab");
+	$("#htmlSB").removeClass("activeTab");
 }
 
 //==============================================

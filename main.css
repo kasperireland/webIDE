@@ -79,6 +79,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin-right: 5px;
 }
 
 .mainContainer .runContainer .runHeaderContainer {
@@ -118,7 +119,7 @@ body {
   border: none;
 }
 
-.headerContainer #title {
+.headerContainer #title, .headerContainer #blankTitle {
   padding-left: 15px;
   font-size: 1.2rem;
   padding-bottom: 5px;
@@ -127,7 +128,7 @@ body {
   text-align: left;
 }
 
-.headerContainer #title:focus {
+.headerContainer #title:focus, .headerContainer #blankTitle:focus {
   outline: none;
 }
 
@@ -174,6 +175,12 @@ body {
 
 .tabContainer .yellow {
   background-color: #ffe438;
+}
+
+.tabContainer .activeTab {
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
 }
 
 .tabContainer .active {
