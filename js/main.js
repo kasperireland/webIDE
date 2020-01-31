@@ -1,4 +1,6 @@
-function print(msg){
+console.clear();
+
+function print(msg) {
 	console.log(msg);
 }
 
@@ -19,41 +21,43 @@ editor.setOptions({
 editor.setShowPrintMargin(false);
 
 editor.commands.addCommand({
-    name: 'Save',
-    bindKey: {win: 'Ctrl-S',  mac: 'Command-S'},
-    exec: function(editor) {
-		if(!liveUpdate){
+	name: "Save",
+	bindKey: { win: "Ctrl-S", mac: "Command-S" },
+	exec: function(editor) {
+		if (!liveUpdate) {
 			showToast("Saved", "Preview has been updated");
 			updateHtml();
 			updateCss();
 			updateJs();
 		}
-    },
-    readOnly: true // false if this command should not apply in readOnly mode
+	},
+	readOnly: true // false if this command should not apply in readOnly mode
 });
-
 
 // var EditSession = require("ace/edit_session").EditSession;
 var EditSession = ace.EditSession;
 
-
-let liveUpdate= true;
-
-
+let liveUpdate = true;
 
 var html = new EditSession("<h2>Hello World</h2>");
 html.setMode("ace/mode/html");
 html.on("change", function(delta) {
-	if(liveUpdate){
+	if (liveUpdate) {
 		updateHtml();
 		updateJs();
 	}
 });
 
-var css = new EditSession(["h2{", "    color: purple;","    text-align: center;","    margin: 25px;", "}"]);
+var css = new EditSession([
+	"h2{",
+	"    color: purple;",
+	"    text-align: center;",
+	"    margin: 25px;",
+	"}"
+]);
 css.setMode("ace/mode/css");
 css.on("change", function(delta) {
-	if(liveUpdate){
+	if (liveUpdate) {
 		updateCss();
 	}
 });
@@ -61,7 +65,7 @@ css.on("change", function(delta) {
 var js = new EditSession("console.log('Hello World');");
 js.setMode("ace/mode/javascript");
 js.on("change", function(delta) {
-	if(liveUpdate){
+	if (liveUpdate) {
 		updateJs();
 	}
 });
@@ -88,11 +92,11 @@ function updateCss() {
 		.contents()
 		.find("style")
 		.remove();
-	let styleTag= "<style>" + css.getValue() + "</style>";
+	let styleTag = "<style>" + css.getValue() + "</style>";
 	$("#runI")
-	.contents()
-	.find("head")
-	.append(styleTag);
+		.contents()
+		.find("head")
+		.append(styleTag);
 }
 
 function updateJs() {
@@ -197,36 +201,35 @@ $("#zoomOutB").click(function() {
 
 setLiveUpdate();
 
-function setLiveUpdate(){
-	liveUpdate= true;
+function setLiveUpdate() {
+	liveUpdate = true;
 	$("#liveUpB").removeClass("inactive");
 	$("#liveUpB").addClass("active");
 	$("#saveUpB").removeClass("active");
 	$("#saveUpB").addClass("inactive");
-	showToast('Live update enabled', 'It may give poor performance');
+	showToast("Live update enabled", "It may give poor performance");
 }
 
-function setUpdateOnSave(){
-	liveUpdate= false;
+function setUpdateOnSave() {
+	liveUpdate = false;
 	$("#liveUpB").removeClass("active");
 	$("#liveUpB").addClass("inactive");
 	$("#saveUpB").removeClass("inactive");
 	$("#saveUpB").addClass("active");
-	showToast('Update on save enabled', 'Press Ctrl + S to save');
+	showToast("Update on save enabled", "Press Ctrl + S to save");
 }
 
-
-function showToast(title, content){
+function showToast(title, content) {
 	$.toast({
 		heading: title,
 		text: content,
-		position: 'bottom-right',
+		position: "bottom-right",
 		stack: 2,
 		//icon: 'success',
-		bgColor: '#00b075',
-    	textColor: 'white',
-		showHideTransition: 'slide',
-		loader: true,  
-    	loaderBg: '#005438',
+		bgColor: "#00b075",
+		textColor: "white",
+		showHideTransition: "slide",
+		loader: true,
+		loaderBg: "#005438"
 	});
 }
