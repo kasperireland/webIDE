@@ -119,7 +119,19 @@ body {
   border: none;
 }
 
-.headerContainer #title, .headerContainer #blankTitle {
+.headerContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.headerContainer #logo {
+  margin-top: -5px;
+  height: 35px;
+}
+
+.headerContainer #title,
+.headerContainer #blankTitle {
   padding-left: 15px;
   font-size: 1.2rem;
   padding-bottom: 5px;
@@ -128,7 +140,8 @@ body {
   text-align: left;
 }
 
-.headerContainer #title:focus, .headerContainer #blankTitle:focus {
+.headerContainer #title:focus,
+.headerContainer #blankTitle:focus {
   outline: none;
 }
 

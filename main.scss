@@ -29,7 +29,6 @@ body {
 			flex-direction: row;
 			padding-top: 5px;
 			position: relative;
-			
 		}
 		.editorContainer {
 			flex-grow: 1;
@@ -79,16 +78,18 @@ body {
 				outline: none;
 				border: none;
 			}
-			
 		}
-
-		
 	}
 }
 
-
 .headerContainer {
-	#title, #blankTitle {
+	display: flex;
+	#logo {
+		margin-top: -5px;
+		height: 35px;
+	}
+	#title,
+	#blankTitle {
 		padding-left: 15px;
 		font-size: 1.2rem;
 		padding-bottom: 5px;
@@ -131,33 +132,33 @@ body {
 		color: white;
 		margin-right: 20px;
 	}
-	.yellow{
+	.yellow {
 		background-color: #ffe438;
 	}
-	.activeTab{
+	.activeTab {
 		border-top: 2px solid black;
 		border-left: 2px solid black;
 		border-right: 2px solid black;
 	}
-	.active{
+	.active {
 		background-color: blueviolet;
 		color: white;
 	}
-	.inactive{
+	.inactive {
 		background-color: rgb(240, 240, 240);
-		color: black
+		color: black;
 	}
-	.round{
+	.round {
 		border-bottom-left-radius: 20px;
 		border-bottom-right-radius: 20px;
 	}
-	.semiLeft{
+	.semiLeft {
 		border-top-left-radius: 20px;
 		border-top-right-radius: 0px;
 		padding: 5px 15px 5px 15px;
 		margin-right: 0;
 	}
-	.semiRight{
+	.semiRight {
 		border-top-right-radius: 20px;
 		border-top-left-radius: 0px;
 		padding: 5px 15px 5px 15px;
