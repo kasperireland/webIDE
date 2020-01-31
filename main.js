@@ -1,3 +1,7 @@
+function print(msg){
+	console.log(msg);
+}
+
 var editor = ace.edit("editor");
 //editor.setTheme("ace/theme/github");
 //editor.session.setMode("ace/mode/javascript");
@@ -12,45 +16,84 @@ editor.setOptions({
 	enableLiveAutocompletion: true
 });
 
+editor.setShowPrintMargin(false);
+
+editor.commands.addCommand({
+    name: 'Save',
+    bindKey: {win: 'Ctrl-S',  mac: 'Command-S'},
+    exec: function(editor) {
+		//downloadProject();
+		updateHtml();
+		updateCss();
+		updateJs();
+    },
+    readOnly: true // false if this command should not apply in readOnly mode
+});
+
 // var EditSession = require("ace/edit_session").EditSession;
 var EditSession = ace.EditSession;
+
+
+let liveUpdate= true;
+
+
 
 var html = new EditSession("<h2>Hello World</h2>");
 html.setMode("ace/mode/html");
 html.on("change", function(delta) {
-	updateHtml();
+	if(liveUpdate){
+		updateHtml();
+		updateJs();
+	}
 });
 
-var css = new EditSession(["h2{", "   color: purple;", "}"]);
+var css = new EditSession(["h2{", "   color: purple; text-align: center; margin: 25px;", "}"]);
 css.setMode("ace/mode/css");
 css.on("change", function(delta) {
-	updateCss();
+	if(liveUpdate){
+		updateCss();
+	}
 });
 
 var js = new EditSession("console.log('Hello World');");
 js.setMode("ace/mode/javascript");
 js.on("change", function(delta) {
-	updateJs();
+	if(liveUpdate){
+		supdateJs();
+	}
 });
 
 //=======================================================
 runI = document.getElementById("runI");
 
 function updateHtml() {
-	runI.srcdoc = html.getValue();
+	print("Updating HTML");
+	//runI.srcdoc = html.getValue();
+	$("#runI")
+		.contents()
+		.find("body")
+		.empty();
+	$("#runI")
+		.contents()
+		.find("body")
+		.append(html.getValue());
 }
 
 function updateCss() {
+	print("Updating CSS");
 	$("#runI")
 		.contents()
 		.find("style")
 		.remove();
-	let doc = runI.contentDocument;
-	doc.body.innerHTML =
-		doc.body.innerHTML + "<style>" + css.getValue() + "</style>";
+	let styleTag= "<style>" + css.getValue() + "</style>";
+	$("#runI")
+	.contents()
+	.find("head")
+	.append(styleTag);
 }
 
 function updateJs() {
+	print("Updating JS");
 	$("#runI")
 		.contents()
 		.find("script")
@@ -136,5 +179,15 @@ $("#zoomInB").click(function() {
 $("#zoomOutB").click(function() {
 	fontSize = fontSize - 4;
 	editor.setFontSize(fontSize);
+	hideMenu();
+});
+
+$("#livePreviewB").click(function() {
+	liveUpdate= true;
+	hideMenu();
+});
+
+$("#updateOnSaveB").click(function() {
+	liveUpdate= false;
 	hideMenu();
 });
