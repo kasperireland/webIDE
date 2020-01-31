@@ -182,12 +182,20 @@ $("#zoomOutB").click(function() {
 	hideMenu();
 });
 
-$("#livePreviewB").click(function() {
-	liveUpdate= true;
-	hideMenu();
-});
 
-$("#updateOnSaveB").click(function() {
+
+function setLiveUpdate(){
+	liveUpdate= true;
+	$("#liveUpB").removeClass("inactive");
+	$("#liveUpB").addClass("active");
+	$("#saveUpB").removeClass("active");
+	$("#saveUpB").addClass("inactive");
+}
+
+function setUpdateOnSave(){
 	liveUpdate= false;
-	hideMenu();
-});
+	$("#liveUpB").removeClass("active");
+	$("#liveUpB").addClass("inactive");
+	$("#saveUpB").removeClass("inactive");
+	$("#saveUpB").addClass("active");
+}

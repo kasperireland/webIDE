@@ -21,8 +21,6 @@
                         <ul id="menuUl" onblur="hideMenu()">
                             <li><a id="zoomInB">Zoom In</a></li>
                             <li><a id="zoomOutB">Zoom Out</a></li>
-                            <li><a id="livePreviewB">Live Update</a></li>
-                            <li><a id="updateOnSaveB">Update On Save</a></li>
                             <li><a onclick="downloadProject()">Download Project</a></li>
                         </ul>
                     </div>
@@ -37,7 +35,19 @@
             </div>
         </div>
         <div class="runContainer">
+            <div class="runHeaderContainer">
+                <div class="headerContainer">
+                    <input id="title" type="text" value=" ">
+                </div>
+                <div class="tabContainer">
+                    <button id="liveUpB" class="active round" onclick="setLiveUpdate()">Live Update</button>
+                    <button id="saveUpB" class="inactive round" onclick="setUpdateOnSave()">Update On Save</button class="purple">
+                    
+                </div>
+            </div>
+            <div class="runIContainer">
             <iframe id="runI"></iframe>
+            </div>
         </div>
     </div>
 

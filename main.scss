@@ -29,86 +29,7 @@ body {
 			flex-direction: row;
 			padding-top: 5px;
 			position: relative;
-			.headerContainer {
-				#title {
-					padding-left: 15px;
-					font-size: 1.2rem;
-					padding-bottom: 5px;
-					border: none;
-					outline: none;
-					text-align: left;
-					&:focus {
-						outline: none;
-					}
-				}
-			}
-			.tabContainer {
-				position: absolute;
-				bottom: 0;
-				right: 0px;
-				button {
-					padding: 5px 30px;
-					border-radius: 20px 20px 0 0;
-					color: black;
-					border: none;
-					outline: none;
-					font-weight: bold;
-					box-shadow: inset 0px 0px 10px -2px rgba(102, 102, 102, 1);
-					&:hover {
-						cursor: pointer;
-						box-shadow: 0px 0px 10px -2px rgba(102, 102, 102, 1);
-					}
-				}
-				.green {
-					background-color: rgb(0, 255, 98);
-				}
-				.purple {
-					background-color: rgb(238, 140, 255);
-				}
-				.blue {
-					background-color: rgb(109, 201, 255);
-				}
-				.black {
-					background-color: black;
-					color: white;
-					margin-right: 20px;
-				}
-				.menuDropdown {
-					position: absolute;
-					left: -150px;
-					ul {
-						z-index: 10;
-						position: absolute;
-						margin: 0;
-						padding: 0;
-						width: 100%;
-						transform-origin: top;
-						background-color: #4c4c;
-						transition: 0.5s;
-						border: 1px solid black;
-						border-bottom-left-radius: 20px;
-						border-bottom-right-radius: 20px;
-						overflow: hidden;
-						li {
-							list-style: none;
-							a {
-								display: block;
-								text-decoration: none;
-								text-align: center;
-								background-color: white;
-								color: black;
-								padding: 3px;
-								border: 1px solid rgba(0, 0, 0, 0.2);
-								&:hover {
-									background-color: blueviolet;
-									color: white;
-									cursor: pointer;
-								}
-							}
-						}
-					}
-				}
-			}
+			
 		}
 		.editorContainer {
 			flex-grow: 1;
@@ -129,14 +50,131 @@ body {
 		}
 	}
 	.runContainer {
-		background-color: white;
-		margin: 5px;
-		box-shadow: inset 0px 0px 10px -2px rgba(102, 102, 102, 1);
-		#runI {
-			width: 100%;
-			height: 100%;
+		// background-color: white;
+		// margin: 5px;
+		// box-shadow: inset 0px 0px 10px -2px rgba(102, 102, 102, 1);
+
+		display: flex;
+		flex-direction: column;
+		.runHeaderContainer {
+			background-color: white;
+			height: fit-content;
+			display: flex;
+			flex-direction: row;
+			padding-top: 5px;
+			position: relative;
+		}
+		.runIContainer {
+			flex-grow: 1;
+			background-color: white;
+			margin-bottom: 5px;
+			margin-left: 5px;
+			box-shadow: inset 0px 0px 10px -2px rgba(102, 102, 102, 1);
+			padding: 5px;
+			#runI {
+				width: 100%;
+				height: 100%;
+				box-sizing: border-box;
+				outline: none;
+				border: none;
+			}
+			
+		}
+
+		
+	}
+}
+
+
+.headerContainer {
+	#title {
+		padding-left: 15px;
+		font-size: 1.2rem;
+		padding-bottom: 5px;
+		border: none;
+		outline: none;
+		text-align: left;
+		&:focus {
 			outline: none;
-			border: none;
+		}
+	}
+}
+.tabContainer {
+	position: absolute;
+	bottom: 0;
+	right: 0px;
+	button {
+		padding: 5px 30px;
+		border-radius: 20px 20px 0 0;
+		color: black;
+		border: none;
+		outline: none;
+		font-weight: bold;
+		box-shadow: inset 0px 0px 10px -2px rgba(102, 102, 102, 1);
+		&:hover {
+			cursor: pointer;
+			box-shadow: 0px 0px 10px -2px rgba(102, 102, 102, 1);
+		}
+	}
+	.green {
+		background-color: rgb(0, 255, 98);
+	}
+	.purple {
+		background-color: rgb(238, 140, 255);
+	}
+	.blue {
+		background-color: rgb(109, 201, 255);
+	}
+	.black {
+		background-color: black;
+		color: white;
+		margin-right: 20px;
+	}
+	.active{
+		background-color: blueviolet;
+		color: white;
+	}
+	.inactive{
+		background-color: rgb(240, 240, 240);
+		color: black
+	}
+	.round{
+		border-bottom-left-radius: 20px;
+		border-bottom-right-radius: 20px;
+	}
+	.menuDropdown {
+		position: absolute;
+		left: -150px;
+		ul {
+			z-index: 10;
+			position: absolute;
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			transform-origin: top;
+			background-color: #4c4c;
+			transition: 0.5s;
+			border: 1px solid black;
+			border-bottom-left-radius: 20px;
+			border-bottom-right-radius: 20px;
+			overflow: hidden;
+			li {
+				list-style: none;
+				a {
+					display: block;
+					text-decoration: none;
+					text-align: center;
+					background-color: white;
+					color: black;
+					padding: 3px;
+					border: 1px solid rgba(0, 0, 0, 0.2);
+					&:hover {
+						background-color: blueviolet;
+						color: white;
+						cursor: pointer;
+					}
+				}
+			}
 		}
 	}
 }

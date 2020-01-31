@@ -48,102 +48,6 @@ body {
   position: relative;
 }
 
-.mainContainer .codeContainer .menuContainer .headerContainer #title {
-  padding-left: 15px;
-  font-size: 1.2rem;
-  padding-bottom: 5px;
-  border: none;
-  outline: none;
-  text-align: left;
-}
-
-.mainContainer .codeContainer .menuContainer .headerContainer #title:focus {
-  outline: none;
-}
-
-.mainContainer .codeContainer .menuContainer .tabContainer {
-  position: absolute;
-  bottom: 0;
-  right: 0px;
-}
-
-.mainContainer .codeContainer .menuContainer .tabContainer button {
-  padding: 5px 30px;
-  border-radius: 20px 20px 0 0;
-  color: black;
-  border: none;
-  outline: none;
-  font-weight: bold;
-  -webkit-box-shadow: inset 0px 0px 10px -2px #666666;
-          box-shadow: inset 0px 0px 10px -2px #666666;
-}
-
-.mainContainer .codeContainer .menuContainer .tabContainer button:hover {
-  cursor: pointer;
-  -webkit-box-shadow: 0px 0px 10px -2px #666666;
-          box-shadow: 0px 0px 10px -2px #666666;
-}
-
-.mainContainer .codeContainer .menuContainer .tabContainer .green {
-  background-color: #00ff62;
-}
-
-.mainContainer .codeContainer .menuContainer .tabContainer .purple {
-  background-color: #ee8cff;
-}
-
-.mainContainer .codeContainer .menuContainer .tabContainer .blue {
-  background-color: #6dc9ff;
-}
-
-.mainContainer .codeContainer .menuContainer .tabContainer .black {
-  background-color: black;
-  color: white;
-  margin-right: 20px;
-}
-
-.mainContainer .codeContainer .menuContainer .tabContainer .menuDropdown {
-  position: absolute;
-  left: -150px;
-}
-
-.mainContainer .codeContainer .menuContainer .tabContainer .menuDropdown ul {
-  z-index: 10;
-  position: absolute;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  -webkit-transform-origin: top;
-          transform-origin: top;
-  background-color: #4c4c;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  border: 1px solid black;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  overflow: hidden;
-}
-
-.mainContainer .codeContainer .menuContainer .tabContainer .menuDropdown ul li {
-  list-style: none;
-}
-
-.mainContainer .codeContainer .menuContainer .tabContainer .menuDropdown ul li a {
-  display: block;
-  text-decoration: none;
-  text-align: center;
-  background-color: white;
-  color: black;
-  padding: 3px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-.mainContainer .codeContainer .menuContainer .tabContainer .menuDropdown ul li a:hover {
-  background-color: blueviolet;
-  color: white;
-  cursor: pointer;
-}
-
 .mainContainer .codeContainer .editorContainer {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
@@ -168,16 +72,160 @@ body {
 }
 
 .mainContainer .runContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.mainContainer .runContainer .runHeaderContainer {
   background-color: white;
-  margin: 5px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding-top: 5px;
+  position: relative;
+}
+
+.mainContainer .runContainer .runIContainer {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  background-color: white;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  -webkit-box-shadow: inset 0px 0px 10px -2px #666666;
+          box-shadow: inset 0px 0px 10px -2px #666666;
+  padding: 5px;
+}
+
+.mainContainer .runContainer .runIContainer #runI {
+  width: 100%;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  outline: none;
+  border: none;
+}
+
+.headerContainer #title {
+  padding-left: 15px;
+  font-size: 1.2rem;
+  padding-bottom: 5px;
+  border: none;
+  outline: none;
+  text-align: left;
+}
+
+.headerContainer #title:focus {
+  outline: none;
+}
+
+.tabContainer {
+  position: absolute;
+  bottom: 0;
+  right: 0px;
+}
+
+.tabContainer button {
+  padding: 5px 30px;
+  border-radius: 20px 20px 0 0;
+  color: black;
+  border: none;
+  outline: none;
+  font-weight: bold;
   -webkit-box-shadow: inset 0px 0px 10px -2px #666666;
           box-shadow: inset 0px 0px 10px -2px #666666;
 }
 
-.mainContainer .runContainer #runI {
+.tabContainer button:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 10px -2px #666666;
+          box-shadow: 0px 0px 10px -2px #666666;
+}
+
+.tabContainer .green {
+  background-color: #00ff62;
+}
+
+.tabContainer .purple {
+  background-color: #ee8cff;
+}
+
+.tabContainer .blue {
+  background-color: #6dc9ff;
+}
+
+.tabContainer .black {
+  background-color: black;
+  color: white;
+  margin-right: 20px;
+}
+
+.tabContainer .active {
+  background-color: blueviolet;
+  color: white;
+}
+
+.tabContainer .inactive {
+  background-color: #f0f0f0;
+  color: black;
+}
+
+.tabContainer .round {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.tabContainer .menuDropdown {
+  position: absolute;
+  left: -150px;
+}
+
+.tabContainer .menuDropdown ul {
+  z-index: 10;
+  position: absolute;
+  margin: 0;
+  padding: 0;
   width: 100%;
-  height: 100%;
-  outline: none;
-  border: none;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  background-color: #4c4c;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  border: 1px solid black;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
+}
+
+.tabContainer .menuDropdown ul li {
+  list-style: none;
+}
+
+.tabContainer .menuDropdown ul li a {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  background-color: white;
+  color: black;
+  padding: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.tabContainer .menuDropdown ul li a:hover {
+  background-color: blueviolet;
+  color: white;
+  cursor: pointer;
 }
 /*# sourceMappingURL=main.css.map */
