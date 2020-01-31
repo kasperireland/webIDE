@@ -172,6 +172,10 @@ body {
   margin-right: 20px;
 }
 
+.tabContainer .yellow {
+  background-color: #ffe438;
+}
+
 .tabContainer .active {
   background-color: blueviolet;
   color: white;
@@ -187,45 +191,18 @@ body {
   border-bottom-right-radius: 20px;
 }
 
-.tabContainer .menuDropdown {
-  position: absolute;
-  left: -150px;
+.tabContainer .semiLeft {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 0px;
+  padding: 5px 15px 5px 15px;
+  margin-right: 0;
 }
 
-.tabContainer .menuDropdown ul {
-  z-index: 10;
-  position: absolute;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  -webkit-transform-origin: top;
-          transform-origin: top;
-  background-color: #4c4c;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  border: 1px solid black;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  overflow: hidden;
-}
-
-.tabContainer .menuDropdown ul li {
-  list-style: none;
-}
-
-.tabContainer .menuDropdown ul li a {
-  display: block;
-  text-decoration: none;
-  text-align: center;
-  background-color: white;
-  color: black;
-  padding: 3px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-.tabContainer .menuDropdown ul li a:hover {
-  background-color: blueviolet;
-  color: white;
-  cursor: pointer;
+.tabContainer .semiRight {
+  border-top-right-radius: 20px;
+  border-top-left-radius: 0px;
+  padding: 5px 15px 5px 15px;
+  margin-left: -5px;
+  margin-right: 20px;
 }
 /*# sourceMappingURL=main.css.map */

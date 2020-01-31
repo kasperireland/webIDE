@@ -22,13 +22,16 @@ editor.commands.addCommand({
     name: 'Save',
     bindKey: {win: 'Ctrl-S',  mac: 'Command-S'},
     exec: function(editor) {
-		//downloadProject();
-		updateHtml();
-		updateCss();
-		updateJs();
+		if(!liveUpdate){
+			showToast("Saved", "Preview has been updated");
+			updateHtml();
+			updateCss();
+			updateJs();
+		}
     },
     readOnly: true // false if this command should not apply in readOnly mode
 });
+
 
 // var EditSession = require("ace/edit_session").EditSession;
 var EditSession = ace.EditSession;
@@ -59,7 +62,7 @@ var js = new EditSession("console.log('Hello World');");
 js.setMode("ace/mode/javascript");
 js.on("change", function(delta) {
 	if(liveUpdate){
-		supdateJs();
+		updateJs();
 	}
 });
 
@@ -129,6 +132,7 @@ function getValue(msg) {
 }
 //==============================================
 function downloadProject() {
+	showToast("Project Download", "Zipping files....");
 	let htmlC = html.getValue();
 	let cssC = css.getValue();
 	let jsC = js.getValue();
@@ -182,7 +186,7 @@ $("#zoomOutB").click(function() {
 	hideMenu();
 });
 
-
+setLiveUpdate();
 
 function setLiveUpdate(){
 	liveUpdate= true;
@@ -190,6 +194,7 @@ function setLiveUpdate(){
 	$("#liveUpB").addClass("active");
 	$("#saveUpB").removeClass("active");
 	$("#saveUpB").addClass("inactive");
+	showToast('Live update enabled', 'It may give poor performance');
 }
 
 function setUpdateOnSave(){
@@ -198,4 +203,21 @@ function setUpdateOnSave(){
 	$("#liveUpB").addClass("inactive");
 	$("#saveUpB").removeClass("inactive");
 	$("#saveUpB").addClass("active");
+	showToast('Update on save enabled', 'Press Ctrl + S to save');
+}
+
+
+function showToast(title, content){
+	$.toast({
+		heading: title,
+		text: content,
+		position: 'bottom-right',
+		stack: 2,
+		//icon: 'success',
+		bgColor: '#00b075',
+    	textColor: 'white',
+		showHideTransition: 'slide',
+		loader: true,  
+    	loaderBg: '#005438',
+	});
 }
